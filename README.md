@@ -10,7 +10,7 @@
 
 
 - [x] Create personal repository
-- [ ] Create at least four test classes
+- [x] Create at least four test classes
 - [ ] Create tests using annotations
 - [ ] Create Listener with action triggered by Framework and actions triggered by each test
 - [ ] Add logging for each test
