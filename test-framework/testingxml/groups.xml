@@ -1,0 +1,17 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite" parallel="false">
+    <test name="Test1">
+        <groups>
+            <run>
+                <include name="vip"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.github.de9d.common.SimpleTestBaseClass"/>
+            <class name="com.github.de9d.common.example.FirstSimpleTestClass"/>
+            <class name="com.github.de9d.common.example.SecondSimpleTestClass"/>
+            <class name="com.github.de9d.common.example.ThirdSimpleTestClass"/>
+            <class name="com.github.de9d.common.example.FourthSimpleTestClass"/>
+        </classes>
+    </test>
+</suite>

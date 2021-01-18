@@ -1,25 +1,61 @@
 package com.github.de9d.common;
 
-import org.testng.ITestNGListener;
+import lombok.extern.slf4j.Slf4j;
 import org.testng.annotations.*;
 
-@Listeners(ITestNGListener.class)
+import java.time.LocalDateTime;
+
+
+@Slf4j
 public class SimpleTestBaseClass {
-
+    /*
+    *
+    * Actions that should be performed before running certain
+    * groups of tests
+    *
+    * */
     @BeforeGroups
-    private void beforeGroup() {}
-
+    public void beforeGroup() {
+        log.info(String.valueOf(LocalDateTime.now()));
+    }
+    /*
+    *
+    * Actions that should be performed before running
+    * test suit (before loading test classes)
+    *
+    * */
     @BeforeSuite
-    private void beforeSuite() {}
-
+    public void beforeSuite() {
+        log.info(String.valueOf(LocalDateTime.now()));
+    }
+    /*
+    *
+    * Actions that should be performed before running
+    * test cases and after before suit
+    *
+    * */
     @BeforeTest
-    private void beforeTest() {}
-
+    public void beforeTest() {
+        log.info(String.valueOf(LocalDateTime.now()));
+    }
+    /*
+    *
+    * Actions that should be performed after beforeSuit() and before loading
+    * certain class (before methods in class are invoked)
+    *
+    * */
     @BeforeClass
-    private void beforeClass() {}
-
+    public void beforeClass() {
+        log.info(String.valueOf(LocalDateTime.now()));
+    }
+    /*
+    *
+    * Actions that should be performed before executing
+    * certain method
+    *
+    * */
     @BeforeMethod
-    private void beforeMethod() {}
-
-
+    public void beforeMethod() {
+        log.info(String.valueOf(LocalDateTime.now()));
+    }
 }
