@@ -1,10 +1,7 @@
 package com.github.de9d.common.example;
 
-import api.SimpleClass;
 import com.github.de9d.common.SimpleTestBaseClass;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.slf4j.Marker;
 import org.testng.annotations.*;
 import tools.TestNGListener;
@@ -15,9 +12,8 @@ import static org.testng.Assert.*;
 @Listeners(TestNGListener.class)
 public class FirstSimpleTestClass extends SimpleTestBaseClass {
 
-    final static Logger LOG = LoggerFactory.getLogger(FirstSimpleTestClass.class);
-    final static SimpleClass SIMPLE_CLASS = new SimpleClass();
-    final static String MARKER = "\n\n===================================================================\n\n";
+
+    private static final String SUITE = "First";
 
     @BeforeGroups
     public void beforeGroup() {
@@ -121,14 +117,22 @@ public class FirstSimpleTestClass extends SimpleTestBaseClass {
     }
 
     @Test
-    public void testNG3() {}
+    public void testNG3() {
+        log.info(String.format(MSG, SUITE, "testNG3"));
+    }
 
     @Test
-    public void testNG4() {}
+    public void testNG4() {
+        log.info(String.format(MSG, SUITE, "testNG4"));
+    }
 
     @Test
-    public void testNG5() {}
+    public void testNG5() {
+        log.info(String.format(MSG, SUITE, "testNG5"));
+    }
 
     @Test
-    public void testNG6() {}
+    public void testNG6() {
+        log.info(String.format(MSG, SUITE, "testNG6"));
+    }
 }

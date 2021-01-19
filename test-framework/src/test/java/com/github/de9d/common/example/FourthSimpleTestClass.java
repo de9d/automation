@@ -1,25 +1,41 @@
 package com.github.de9d.common.example;
 
 import com.github.de9d.common.SimpleTestBaseClass;
+import lombok.extern.slf4j.Slf4j;
 import org.testng.annotations.Test;
 
+@Slf4j
 public class FourthSimpleTestClass extends SimpleTestBaseClass {
 
-    @Test
-    public void testNG1() {}
+    private static final String SUITE = "Fourth";
 
     @Test
-    public void testNG2() {}
+    public void testNG1() {
+        log.info(String.format(MSG, SUITE, "testNG1"));
+    }
 
     @Test
-    public void testNG3() {}
+    public void testNG2() {
+        log.info(String.format(MSG, SUITE, "testNG2"));
+    }
 
     @Test
-    public void testNG4() {}
+    public void testNG3() {
+        log.info(String.format(MSG, SUITE, "testNG3"));
+    }
 
     @Test
-    public void testNG5() {}
+    public void testNG4() {
+        log.info(String.format(MSG, SUITE, "testNG4"));
+    }
 
     @Test
-    public void testNG6() {}
+    public void testNG5() {
+        log.info(String.format(MSG, SUITE, "testNG5"));
+    }
+
+    @Test(groups = "666")
+    public void testNG6() {
+        log.info(String.format(MSG, SUITE, "testNG6"));
+    }
 }

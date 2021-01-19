@@ -3,7 +3,7 @@
     <test name="Test1">
         <groups>
             <run>
-                <include name="vip"/>
+                <include name="666"/>
             </run>
         </groups>
         <classes>

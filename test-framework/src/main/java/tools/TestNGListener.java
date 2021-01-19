@@ -15,7 +15,13 @@ public class TestNGListener implements ITestListener {
 
     @Override
     public void onTestSuccess(ITestResult iTestResult) {
-
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 100; j++) {
+                if (i % 2 == 0)
+                System.out.print("*");
+            }
+            System.out.println();
+        }
     }
 
     @Override
