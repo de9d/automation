@@ -1,6 +1,8 @@
 package tools;
 
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Marker;
+import org.slf4j.MarkerFactory;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
@@ -11,9 +13,12 @@ import java.time.LocalDateTime;
 @Slf4j
 public class TestNGListener implements ITestListener {
 
+    private final static Marker MARKER = MarkerFactory.getMarker("<<<<<<<<<<<<<< TestNGListener >>>>>>>>>>>>>>");
     @Override
     public void onTestStart(ITestResult result) {
+        log.info(String.valueOf(MARKER));
         log.info("Test started: " + result.getName());
+        log.info("Exiting Listener\n\n");
     }
 
     @Override

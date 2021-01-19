@@ -101,20 +101,24 @@ public class FirstSimpleTestClass extends SimpleTestBaseClass {
     @Test
     public void testNG3() {
         log.info(String.format(MSG, SUITE, "testNG3"));
+        assertTrue(true, "True should not be false!");
     }
 
     @Test
     public void testNG4() {
         log.info(String.format(MSG, SUITE, "testNG4"));
+        assertFalse(false, "False should not be true!");
     }
 
     @Test
     public void testNG5() {
         log.info(String.format(MSG, SUITE, "testNG5"));
+        assertEquals(true, true, "Error: true is not true!");
     }
 
     @Test
     public void testNG6() {
         log.info(String.format(MSG, SUITE, "testNG6"));
+        assertNotEquals(true, false, "ERROR: true is false!");
     }
 }

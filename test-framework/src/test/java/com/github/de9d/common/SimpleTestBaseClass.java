@@ -47,7 +47,7 @@ public class SimpleTestBaseClass {
         log.info("0   0  00000 0 0 00000");
         log.info(" 0 0  0     0 0 0     0");
         log.info(MARKER);
-        log.info("======= Finished before suit method =======\n\n");
+        log.info("======= Finished before suite method =======\n\n");
     }
     /*
     *
@@ -67,7 +67,7 @@ public class SimpleTestBaseClass {
     * */
     @BeforeClass
     public void beforeClass() {
-        log.info("Berore class");
+        log.info("Before class");
         log.info(String.valueOf(LocalDateTime.now()));
     }
     /*
