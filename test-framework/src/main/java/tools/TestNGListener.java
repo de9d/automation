@@ -5,6 +5,9 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
+
+import java.time.LocalDateTime;
+
 @Slf4j
 public class TestNGListener implements ITestListener {
 
@@ -15,13 +18,7 @@ public class TestNGListener implements ITestListener {
 
     @Override
     public void onTestSuccess(ITestResult iTestResult) {
-        for (int i = 0; i < 5; i++) {
-            for (int j = 0; j < 100; j++) {
-                if (i % 2 == 0)
-                System.out.print("*");
-            }
-            System.out.println();
-        }
+
     }
 
     @Override
@@ -41,7 +38,12 @@ public class TestNGListener implements ITestListener {
 
     @Override
     public void onStart(ITestContext iTestContext) {
-
+        log.info(String.valueOf(LocalDateTime.now().toLocalTime()));
+        log.info("*****************************************************");
+        log.info("H  H EEEE L    L     OO   W     W OO  RRR  L    DDD");
+        log.info("HHHH E==  L    L    O  O   W W W O  O RRR  L    D  D");
+        log.info("H  H EEEE LLLL LLLL  OO     W W   OO  R  R LLLL DDD");
+        log.info("*****************************************************\n\n");
     }
 
     @Override

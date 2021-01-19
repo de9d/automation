@@ -8,6 +8,8 @@ import org.slf4j.LoggerFactory;
 import org.testng.annotations.*;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 
 
 @Slf4j
@@ -15,7 +17,7 @@ public class SimpleTestBaseClass {
 
     public final static Logger LOG = LoggerFactory.getLogger(FirstSimpleTestClass.class);
     public final static SimpleClass SIMPLE_CLASS = new SimpleClass();
-    public final static String MARKER = "\n\n===================================================================\n\n";
+    public final static String MARKER = "==============================================================================";
     public final static String MSG = "Executing suite:%s\n running test: %s";
     /*
     *
@@ -25,7 +27,9 @@ public class SimpleTestBaseClass {
     * */
     @BeforeGroups
     public void beforeGroup() {
+        LOG.info(MARKER);
         log.info(String.valueOf(LocalDateTime.now()));
+        LOG.info(MARKER);
     }
     /*
     *
@@ -35,12 +39,15 @@ public class SimpleTestBaseClass {
     * */
     @BeforeSuite
     public void beforeSuite() {
+        log.info(MARKER);
         log.info("Executing suite: " + getClass());
-        log.info(String.valueOf(LocalDateTime.now()));
+        log.info(MARKER);
         log.info("    O    0 0     0 0");
         log.info("    0   0 0 0   0 0 0");
         log.info("0   0  00000 0 0 00000");
         log.info(" 0 0  0     0 0 0     0");
+        log.info(MARKER);
+        log.info("======= Finished before suit method =======\n\n");
     }
     /*
     *
@@ -50,8 +57,7 @@ public class SimpleTestBaseClass {
     * */
     @BeforeTest(alwaysRun = true)
     public void beforeTest() {
-        log.info("\n\n");
-        log.info(String.valueOf(LocalDateTime.now()));
+        log.info(LocalDateTime.now().format(DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT)));
     }
     /*
     *
@@ -61,6 +67,7 @@ public class SimpleTestBaseClass {
     * */
     @BeforeClass
     public void beforeClass() {
+        log.info("Berore class");
         log.info(String.valueOf(LocalDateTime.now()));
     }
     /*

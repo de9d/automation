@@ -12,31 +12,8 @@ import static org.testng.Assert.*;
 @Listeners(TestNGListener.class)
 public class FirstSimpleTestClass extends SimpleTestBaseClass {
 
-
     private static final String SUITE = "First";
 
-    @BeforeGroups
-    public void beforeGroup() {
-
-    }
-    /*
-     *
-     * Actions that should be performed before running
-     * test suit (before loading test classes)
-     *
-     * */
-    @BeforeSuite
-    public void beforeSuite() {
-        super.beforeSuite();
-        LOG.info("invoked beforeSuite()");
-        LOG.info("Debug status: {}", LOG.isDebugEnabled());
-        LOG.info("Error status: {}", LOG.isErrorEnabled());
-        LOG.info("Info status: {}", LOG.isInfoEnabled());
-        LOG.info("Trace status: {}", LOG.isTraceEnabled());
-        LOG.info("Warn status: {}", LOG.isWarnEnabled());
-        LOG.info(MARKER);
-        log.info("Message logged with thr use of annotation");
-    }
     /*
      *
      * Actions that should be performed before running
@@ -59,6 +36,11 @@ public class FirstSimpleTestClass extends SimpleTestBaseClass {
     public void beforeClass() {
         super.beforeClass();
         LOG.info("invoked beforeClass()");
+        LOG.info("Debug status: {}", LOG.isDebugEnabled());
+        LOG.info("Error status: {}", LOG.isErrorEnabled());
+        LOG.info("Info status: {}", LOG.isInfoEnabled());
+        LOG.info("Trace status: {}", LOG.isTraceEnabled());
+        LOG.info("Warn status: {}", LOG.isWarnEnabled());
         LOG.info(MARKER);
     }
     /*
@@ -88,7 +70,7 @@ public class FirstSimpleTestClass extends SimpleTestBaseClass {
         LOG.info("invoked testSetId()");
         int boundaryLow = 0;
         int boundaryHigh = Integer.MAX_VALUE;
-        SIMPLE_CLASS.setId(-1);
+        SIMPLE_CLASS.setId(1);
         int newID = SIMPLE_CLASS.getId();
         log.info("ID set to {}, must be larger than {}", newID, boundaryLow);
         // check that id is positive value
@@ -104,7 +86,7 @@ public class FirstSimpleTestClass extends SimpleTestBaseClass {
             LOG.error("Unexpected value of ID: {}", newID,
                     new Exception("Illegal argument utilized by method!"));
         }
-        assertTrue(newID > 1, "ID value must be positive integer!");
+        assertTrue(newID < boundaryHigh, "ID value must be positive integer!");
         log.error("expected: positive integer, but got {}", newID);
     }
 
