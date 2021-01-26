@@ -7,7 +7,6 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-
 import java.time.LocalDateTime;
 
 @Slf4j
@@ -18,27 +17,30 @@ public class TestNGListener implements ITestListener {
     public void onTestStart(ITestResult result) {
         log.info(String.valueOf(MARKER));
         log.info("Test started: " + result.getName());
-        log.info("Exiting Listener\n\n");
     }
 
     @Override
     public void onTestSuccess(ITestResult iTestResult) {
-
+        log.info("SUCCESS: " + iTestResult.getMethod());
     }
 
     @Override
     public void onTestFailure(ITestResult iTestResult) {
-
+        log.error("##########################################");
+        log.error("Test failed: " + iTestResult.getTestName());
+        log.error("##########################################");
     }
 
     @Override
     public void onTestSkipped(ITestResult iTestResult) {
-
+        log.warn("*****************************************");
+        log.warn("Skipped test: " + iTestResult.getTestName());
+        log.warn("*****************************************");
     }
 
     @Override
     public void onTestFailedButWithinSuccessPercentage(ITestResult iTestResult) {
-
+        log.info("Almost made it: " + iTestResult.getStatus());
     }
 
     @Override
@@ -53,6 +55,10 @@ public class TestNGListener implements ITestListener {
 
     @Override
     public void onFinish(ITestContext iTestContext) {
-
+        log.info("***********************************");
+        log.info("BBb  Y  Y EEEE       BBb  Y  Y EEEE");
+        log.info("Bbbb  YY  Eee  ====  Bbbb  YY  Eee ");
+        log.info("BBBB   Y  EEEE       BBBB   Y  EEEE");
+        log.info("***********************************\n\n");
     }
 }
